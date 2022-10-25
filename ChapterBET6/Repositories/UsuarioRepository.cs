@@ -24,8 +24,8 @@ namespace ChapterBET6.Repositories
             {
                 usuarioEncontrado.Email = usuario.Email;
                 usuarioEncontrado.Senha = usuario.Senha;
+                usuarioEncontrado.Tipo = usuario.Tipo;
            
-
                 _context.Usuarios.Update(usuarioEncontrado);
 
                 _context.SaveChanges();
@@ -61,7 +61,7 @@ namespace ChapterBET6.Repositories
 
         public Usuario Login(string email, string senha)
         {
-            throw new NotImplementedException();
+            return _context.Usuarios.First(u => u.Email == email && u.Senha == senha);
         }
     }
 }
